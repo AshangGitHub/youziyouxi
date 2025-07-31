@@ -5,18 +5,71 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>柚子游戏</title>
-  <script src="./js/_worker.js"></script>
+  <script src="./js/jquery.min.js"></script>
 </head>
 <style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  .container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+  }
+
+
+  .mask {
+    content: '';
+    display: block;
+    width: 100vw;
+    height: 125vw;
+    max-height: 360px;
+    background-color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: 1000;
+
+  }
+
+  .mask .code {
+    height: 100%;
+    display: block;
+    margin: 0 auto;
+    top: 0;
+    left: 0;
+  }
+
+  /* 媒体查询-低于2k */
+  @media (max-width: 268px) {
+    .mask {
+      height: 360px;
+    }
   }
 </style>
 
 <body>
-  <div class="container"></div>
+  <div class="container">
+    <!-- 我需要设置iframe的宽高,我可以修改iframe里面的某个元素吗 -->
+    <div class="mask">
+      <img src="./img/code.jpg" alt="" class="code">
+    </div>
+    <iframe src="https://youziyouxi.ashang9898.workers.dev/" frameborder="0" width="100%" height="100%"></iframe>
+  </div>
 </body>
+<script>
+
+  // 滚动时，mask的宽高会变化
+  // 可以监听iframe的滚动吗
+  // 可以监听iframe的滚动吗
+  // 可以监听iframe的滚动吗
+  $(document).ready(function () {
+    $(window).scroll(function () {
+      //获取当前滚动位置
+      var scrollTop = $(window).scrollTop();
+      // 计算mask的宽高
+      console.log(scrollTop, 'sss');
+    });
+  });
+</script>
 
 </html>
